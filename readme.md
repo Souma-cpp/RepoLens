@@ -3,108 +3,88 @@
 **Understand any GitHub repo in seconds.**
 
 RepoLens scans a GitHub repository and generates a clean onboarding report:
-
-- ✅ Tech stack detection
-- ✅ How to run locally
-- ✅ Repo health warnings (missing env, docker, tests, license, etc.)
-- ✅ Copy-ready Markdown report (perfect for README / Notion / team onboarding)
+**what it is, how to run it, where things live, and what’s missing.**
 
 > Stop wasting 45 minutes doing repo archaeology.  
 > Paste a repo link → get clarity → ship faster.
 
 ---
 
-## ✨ Demo (What you get)
+## ✅ What RepoLens Solves (The Pain)
+
+You open a new repo and instantly get hit with:
+
+- “Where is the entry point?”
+- “How do I run this locally?”
+- “What stack is this even using?”
+- “Where are env variables?”
+- “Is Docker supported?”
+- “Does this repo even have tests?”
+
+RepoLens answers all of that in **one scan**.
+
+---
+
+## ✨ What You Get (Output)
 
 RepoLens returns a structured report like:
 
 - **Framework:** Next.js / React / Express / NestJS / etc.
-- **Stack:** Prisma, Tailwind, TypeScript, JWT, Firebase, etc.
-- **Run Steps:** auto-generated based on scripts
-- **Warnings:** missing `.env.example`, `Dockerfile`, CI, tests, README quality…
+- **Tech Stack:** Prisma, Tailwind, TypeScript, Zod, JWT, Firebase, Supabase, etc.
+- **Run Steps:** auto-generated from scripts
+- **Repo Doctor:** warnings for missing `.env.example`, Docker, tests, README quality…
 - **Repo Score:** quick quality score out of 100
-- **Markdown Export:** copy & paste onboarding instantly
-
----
-
-## 🔥 Why RepoLens Exists
-
-Every developer has faced this:
-
-✅ A new internship repo  
-✅ A hackathon codebase  
-✅ A GitHub project you want to contribute to  
-✅ A client’s messy repo  
-✅ “Bro can you fix this bug quickly?”
-
-And then…
-
-- Where is the entry point?
-- How do I run it?
-- Which stack is this?
-- Is Docker supported?
-- Where are the env variables?
-- Are there tests?
-
-RepoLens answers those questions in **one scan**.
+- **Markdown Report:** copy-paste into README / Notion / docs
 
 ---
 
 ## 🧠 Features
 
-✅ **Framework & stack detection**  
-Detects frameworks and tools from `package.json` dependencies + conventions.
+✅ **Framework + Stack Detection**  
+Detects frameworks + tools from `package.json` deps + conventions.
 
-✅ **Repo Doctor (warnings & risks)**  
-Flags missing files & common footguns:
+✅ **Monorepo Support**  
+Works even when `package.json` is **not in root**.
+
+✅ **Repo Doctor (Health & Risk Warnings)**  
+Flags common repo footguns:
 
 - `.env.example`
 - `Dockerfile`
 - `docker-compose.yml`
-- tests
+- tests folder/config
 - LICENSE
 - weak README
 
-✅ **Monorepo support**  
-Works even when `package.json` is not in root.
-
-✅ **Default branch detection**  
+✅ **Default Branch Support**  
 Supports `main`, `master`, and default branch patterns.
 
-✅ **Copy-ready Markdown output**  
-Generate onboarding docs instantly.
+✅ **Copy-ready Markdown Output**  
+Instant onboarding doc. Copy it and ship.
 
-✅ **Works for Public + Private repos** _(token required for private)_
-
----
-
-## 🏗️ Monorepo Structure
-RepoLens/
-├── backend/ # Express API (repo analysis engine)
-└── frontend/ # Vite + React + Tailwind + shadcn/ui
-
+✅ **Works for Public + Private Repos**  
+Private repos require a GitHub token for API access.
 
 ---
 
-## ⚙️ Tech Stack
-### Frontend
-- React + Vite
-- TailwindCSS
-- shadcn/ui
-- react-hot-toast
-- lucide-react icons
+## 🏗️ How RepoLens Works (Simple)
 
-### Backend
-- Node.js + Express
-- GitHub REST API (`contents` + `trees`)
-- Repo parsing + heuristics
+RepoLens uses the GitHub REST API to:
+
+1. Fetch repo metadata (default branch)
+2. Fetch repo tree (files + folders)
+3. Find the correct `package.json` (even in monorepos)
+4. Detect stack/framework from dependencies + conventions
+5. Generate run steps from scripts
+6. Run repo health checks (Repo Doctor)
+7. Generate a markdown report + JSON report
 
 ---
 
-## 🚀 Getting Started (Local Setup)
+## 📦 Monorepo Structure
 
-### 1) Clone the repo
 ```bash
-git clone https://github.com/<your-username>/RepoLens.git
-cd RepoLens
-
+RepoLens/
+├── backend/     # Express API (repo analysis engine)
+└── frontend/    # Vite + React + Tailwind + shadcn/ui
+```
