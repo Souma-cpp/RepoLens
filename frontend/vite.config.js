@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      "/analyze": "http://localhost:3000",
+      "/analyze": import.meta.env.VITE_BACKEND_URL
     },
   },
   resolve: {
