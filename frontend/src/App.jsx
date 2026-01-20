@@ -119,11 +119,14 @@ export default function App() {
     try {
       setLoading(true);
 
-      const res = await fetch("/analyze", {
+      const BACKEND = import.meta.env.VITE_BACKEND_URL;
+
+      const res = await fetch(`${BACKEND}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ repoUrl: finalUrl }),
+        body: JSON.stringify({ repoUrl }),
       });
+
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
