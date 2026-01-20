@@ -79,3 +79,32 @@ Generate onboarding docs instantly.
 ---
 
 ## 🏗️ Monorepo Structure
+RepoLens/
+├── backend/ # Express API (repo analysis engine)
+└── frontend/ # Vite + React + Tailwind + shadcn/ui
+
+
+---
+
+## ⚙️ Tech Stack
+### Frontend
+- React + Vite
+- TailwindCSS
+- shadcn/ui
+- react-hot-toast
+- lucide-react icons
+
+### Backend
+- Node.js + Express
+- GitHub REST API (`contents` + `trees`)
+- Repo parsing + heuristics
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### 1) Clone the repo
+```bash
+git clone https://github.com/<your-username>/RepoLens.git
+cd RepoLens
+
